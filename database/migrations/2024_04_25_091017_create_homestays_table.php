@@ -14,8 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('description');
-            $table->string('features');
+            $table->longText('description');
+            $table->longText('features');
             $table->string('room_size');
             $table->string('occupancy');
             $table->string('view');

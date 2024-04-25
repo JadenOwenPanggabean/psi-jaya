@@ -173,9 +173,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <img src="{{$item->images[0]->image_location}}" alt="" style="aspect-ratio: 3 / 2; object-fit: cover;">
+                        <img src="{{$item->images[0]->image_location}}" alt=""
+                            style="aspect-ratio: 3 / 2; object-fit: cover;">
                         <div class="room-box-in">
-                            <h5 class="">Big House</h5>
+                            <h5 class=""><a href="/homestay/{{$item->slug}}">{{$item->name}}</a></h5>
                             <p class="mt-3">
                                 {{$item->description}}
                             </p>
@@ -197,9 +198,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <img src="{{$item->images[0]->image_location}}" alt="" style="aspect-ratio: 3 / 2; object-fit: cover;">
+                        <img src="{{$item->images[0]->image_location}}" alt=""
+                            style="aspect-ratio: 3 / 2; object-fit: cover;">
                         <div class="room-box-in">
-                            <h5 class="">Big House</h5>
+                            <h5 class=""><a href="/homestay/{{$item->slug}}">{{$item->name}}</a></h5>
                             <p class="mt-3">
                                 {{$item->description}}
                             </p>
@@ -221,9 +223,10 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <img src="{{$item->images[0]->image_location}}" alt="" style="aspect-ratio: 3 / 2; object-fit: cover;">
+                        <img src="{{$item->images[0]->image_location}}" alt=""
+                            style="aspect-ratio: 3 / 2; object-fit: cover;">
                         <div class="room-box-in">
-                            <h5 class="">Big House</h5>
+                            <h5 class=""><a href="/homestay/{{$item->slug}}">{{$item->name}}</a></h5>
                             <p class="mt-3">
                                 {{$item->description}}
                             </p>
