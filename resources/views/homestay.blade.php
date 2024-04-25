@@ -167,58 +167,22 @@
                                 <a class="next-rooms-sync-1"></a>
                             </div>
                             <div id="rooms-sync1" class="owl-carousel">
+                                @foreach ($homestay_images as $img)
                                 <div class="item">
-                                    <img src="img/gallery/2.jpg" alt="">
+                                    <img src="{{$img->image_location}}" alt=""
+                                        style="aspect-ratio: 3 / 2; object-fit: cover;">
                                 </div>
-                                <div class="item">
-                                    <img src="img/gallery/3.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="img/gallery/4.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="img/gallery/5.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="img/gallery/6.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="img/gallery/7.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="img/gallery/8.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="img/gallery/9.jpg" alt="">
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="section">
                             <div id="rooms-sync2" class="owl-carousel">
+                                @foreach ($homestay_images as $img)
                                 <div class="item">
-                                    <img src="img/gallery/2-s.jpg" alt="">
+                                    <img src="{{$img->image_location}}" alt=""
+                                        style="aspect-ratio: 3 / 2; object-fit: cover;">
                                 </div>
-                                <div class="item">
-                                    <img src="img/gallery/3-s.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="img/gallery/4-s.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="img/gallery/5-s.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="img/gallery/6-s.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="img/gallery/7-s.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="img/gallery/8-s.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img src="img/gallery/9-s.jpg" alt="">
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                         <div class="section pt-5">

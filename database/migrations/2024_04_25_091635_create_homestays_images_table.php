@@ -10,9 +10,9 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('homestay_image', function (Blueprint $table) {
+        Schema::create('homestays_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('homestay_id')->constrained()->onDelete('CASCADE');
+            $table->foreignId('homestays_id')->constrained()->onDelete('CASCADE');
             $table->string('image_location');
             $table->timestamps();
         });
