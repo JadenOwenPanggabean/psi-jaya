@@ -269,7 +269,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 pt-4">
-                                    <a class="booking-button" href="search.html">book now</a>
+                                    <a class="booking-button" href="{{route('pay')}}">book now</a>
                                 </div>
                             </div>
                         </div>
