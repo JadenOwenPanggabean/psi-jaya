@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class HomestaysImage extends Model
 {
-    protected $fillable = ['homestay_id', 'image_location'];
+    protected $fillable = ['homestays_id', 'image_location'];
 
     public function homestay()
     {

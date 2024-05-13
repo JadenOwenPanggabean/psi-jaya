@@ -3308,7 +3308,7 @@ figure.vimeo a img, figure.youtube a img {
 	padding-right:20px;
 	font-weight:400;
 	letter-spacing:1px;
-	font-size: 13px;
+	font-size: 18px;
 	line-height:24px;
 	padding-bottom: 15px;
 	background:transparent;
@@ -3318,17 +3318,35 @@ figure.vimeo a img, figure.youtube a img {
 	-webkit-transition: border-bottom 0.3s, color 0.3s;
 	transition: border-bottom 0.3s, color 0.3s;
 }
+
+.name-input{
+	position:relative;
+	width: 100%;
+	padding-left:20px;
+	padding-right:20px;
+	font-weight:400;
+	letter-spacing:1px;
+	font-size: 18px;
+	line-height:24px;
+	background:transparent;
+	border:none;
+	color: #999999;
+	text-align: center;
+	-webkit-transition: border-bottom 0.3s, color 0.3s;
+	transition: border-bottom 0.3s, color 0.3s;
+}
+
 .ajax-form textarea {
 	width: 100%;
 	padding-left:20px;
 	padding-right:20px;
 	font-weight:400;
 	letter-spacing:1px;
-	font-size: 13px;
+	font-size: 18px;
 	line-height:24px;
 	text-align: center;
 	background:transparent;
-	height:100px;
+	height:70px;
 	border:none;
 	color: #737373;
 	-webkit-transition: border-bottom 0.3s, color 0.3s;
@@ -3351,49 +3369,49 @@ figure.vimeo a img, figure.youtube a img {
     outline: none !important;
 }
 .ajax-form input:-ms-input-placeholder  {
-	font-size: 12px;
+	font-size: 18px;
 	letter-spacing:1px;
 	color:#999999;
 }
 .ajax-form input::-moz-placeholder  {
-	font-size: 12px;
+	font-size: 18px;
 	letter-spacing:1px;
 	color:#999999;
 }
 .ajax-form input:-moz-placeholder  {
-	font-size: 12px;
+	font-size: 18px;
 	letter-spacing:1px;
 	color:#999999;
 }
 .ajax-form input::-webkit-input-placeholder  {
-	font-size: 12px;
+	font-size: 18px;
 	letter-spacing:1px;
 	color:#999999;
 }
 .ajax-form textarea:-ms-input-placeholder  {
-	font-size: 12px;
+	font-size: 18px;
 	letter-spacing:1px;
 	color:#999999;
 }
 .ajax-form textarea::-moz-placeholder  {
-	font-size: 12px;
+	font-size: 18px;
 	letter-spacing:1px;
 	color:#999999;
 }
 .ajax-form textarea:-moz-placeholder  {
-	font-size: 12px;
+	font-size: 18px;
 	letter-spacing:1px;
 	color:#999999;
 }
 .ajax-form textarea::-webkit-input-placeholder  {
-	font-size: 12px;
+	font-size: 18px;
 	letter-spacing:1px;
 	color:#999999;
 }
 .ajax-form button {
 	color:#fff;
 	cursor: pointer;
-	font-size: 12px;
+	font-size: 18px;
 	padding: 10px 20px;
 	text-transform: uppercase;
 	letter-spacing: 2px;

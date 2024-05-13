@@ -169,7 +169,7 @@
                             <div id="rooms-sync1" class="owl-carousel">
                                 @foreach ($homestay_images as $img)
                                 <div class="item">
-                                    <img src="{{url($img->image_location)}}" alt=""
+                                    <img src="{{url('/storage/'. $img->image_location)}}" alt=""
                                         style="aspect-ratio: 3 / 2; object-fit: cover;">
                                 </div>
                                 @endforeach
@@ -179,7 +179,7 @@
                             <div id="rooms-sync2" class="owl-carousel">
                                 @foreach ($homestay_images as $img)
                                 <div class="item">
-                                    <img src="{{url($img->image_location)}}" alt=""
+                                    <img src="{{url('/storage/'. $img->image_location)}}" alt=""
                                         style="aspect-ratio: 3 / 2; object-fit: cover;">
                                 </div>
                                 @endforeach
