@@ -13,8 +13,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/homestay/{homestay:title_slug}', [HomestayController::class, 'index'])->name('homestay');
-Route::post('/admin/homestay/store', [HomestayController::class, 'store'])->name('store.homestay');
 
-Route::get('/pay', [PayController::class, 'index'])->name('pay');
+// Route::get('/pay', [PayController::class, 'index'])->name('pay');
 Route::get('/news', [NewsController::class, 'index'])->name('news');
 
