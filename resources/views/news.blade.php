@@ -14,7 +14,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 parallax-fade-top">
-                    <div class="hero-text">Artikel</div>
+                    <div class="hero-text">Berita</div>
                 </div>
             </div>
         </div>
@@ -25,49 +25,21 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h3 class="text-center padding-bottom-small">Artikel Terbaru</h3>
+                <h3 class="text-center padding-bottom-small">Berita Terbaru</h3>
             </div>
             <div class="section clearfix"></div>
+            @foreach ($news as $new)
             <div class="col-md-6 col-xl-6">
                 <div class="room-box background-white">
-                    <img src="img/blog/1.jpg" alt="">
+                    <img src="{{'/storage/'. $new->image ?? 'https://via.placeholder.com/150?text=Tidak+ada+gambar'}}"
+                        alt="">
                     <div class="room-box-in">
-                        <h6 class="">WE WANT TO SHARE WITH YOU OUR MOOD</h6>
-                        <p class="mt-3">Sed ut perspiciatis unde omnis, totam rem aperiam, eaque ipsa quae ab illo
-                            inventore veritatis et.</p>
+                        <h6 class="">{{$new->title}}</h6>
+                        <p class="mt-3">{{$new->description}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-xl-6">
-                <div class="room-box background-white">
-                    <img src="img/blog/1.jpg" alt="">
-                    <div class="room-box-in">
-                        <h6 class="">WE WANT TO SHARE WITH YOU OUR MOOD</h6>
-                        <p class="mt-3">Sed ut perspiciatis unde omnis, totam rem aperiam, eaque ipsa quae ab illo
-                            inventore veritatis et.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-xl-6">
-                <div class="room-box background-white">
-                    <img src="img/blog/1.jpg" alt="">
-                    <div class="room-box-in">
-                        <h6 class="">WE WANT TO SHARE WITH YOU OUR MOOD</h6>
-                        <p class="mt-3">Sed ut perspiciatis unde omnis, totam rem aperiam, eaque ipsa quae ab illo
-                            inventore veritatis et.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-xl-6">
-                <div class="room-box background-white">
-                    <img src="img/blog/1.jpg" alt="">
-                    <div class="room-box-in">
-                        <h6 class="">WE WANT TO SHARE WITH YOU OUR MOOD</h6>
-                        <p class="mt-3">Sed ut perspiciatis unde omnis, totam rem aperiam, eaque ipsa quae ab illo
-                            inventore veritatis et.</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

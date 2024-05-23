@@ -19,20 +19,20 @@
 
 <div class="section padding-top z-bigger">
     <div class="container">
-        <form method="post" action="{{ route('store.homestay') }}" enctype="multipart/form-data"
+        <form method="post" action="{{ route('store.news') }}" enctype="multipart/form-data"
             class="row justify-content-center padding-bottom-smaller">
             @csrf
             <div class="col-md-8">
                 <div class="subtitle with-line text-center mb-4">Admin</div>
-                <h3 class="text-center padding-bottom-small">Daftarkan Homestay</h3>
+                <h3 class="text-center padding-bottom-small">Buat Berita</h3>
             </div>
             <div class="section clearfix"></div>
 
             <!-- Nama -->
             <div class="col-md-4 ajax-form">
-                <p class="name-input">Nama:</p>
-                <input name="name" type="text" autocomplete="off" required value="{{ old('name') }}" />
-                @error('name')
+                <p class="name-input">Judul:</p>
+                <input name="title" type="text" autocomplete="off" required value="{{ old('title') }}" />
+                @error('title')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
@@ -48,101 +48,11 @@
             </div>
             <div class="section clearfix mt-5"></div>
 
-            <!-- Fitur -->
+            <!-- Gambar -->
             <div class="col-md-4 mt-5 mt-md-0 ajax-form">
-                <p class="name-input">Fitur:</p>
-                <input name="feature" type="text" autocomplete="off" required value="{{ old('feature') }}" />
-                @error('feature')
-                <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="section clearfix mt-5"></div>
-
-            <!-- Ukuran Kamar -->
-            <div class="col-md-4 mt-5 mt-md-0 ajax-form">
-                <p class="name-input">Ukuran Kamar:</p>
-                <input name="roomsize" type="text" autocomplete="off" required value="{{ old('roomsize') }}" />
-                @error('roomsize')
-                <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="section clearfix mt-5"></div>
-
-            <!-- Jumlah Hunian -->
-            <div class="col-md-4 mt-5 mt-md-0 ajax-form">
-                <p class="name-input">Jumlah Hunian:</p>
-                <input name="occupancy" type="text" autocomplete="off" required value="{{ old('occupancy') }}" />
-                @error('occupancy')
-                <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="section clearfix mt-5"></div>
-
-            <!-- Pemandangan -->
-            <div class="col-md-4 mt-5 mt-md-0 ajax-form">
-                <p class="name-input">Pemandangan:</p>
-                <input name="view" type="text" autocomplete="off" required value="{{ old('view') }}" />
-                @error('view')
-                <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="section clearfix mt-5"></div>
-
-            <!-- Boleh Merokok -->
-            <div class="col-md-4 mt-5 mt-md-0 ajax-form">
-                <p class="name-input">Boleh Merokok ?</p>
-                <input name="smoking" type="text" autocomplete="off" required value="{{ old('smoking') }}" />
-                @error('smoking')
-                <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="section clearfix mt-5"></div>
-
-            <!-- Ukuran Tempat Tidur -->
-            <div class="col-md-4 mt-5 mt-md-0 ajax-form">
-                <p class="name-input">Ukuran Tempat Tidur:</p>
-                <input name="bedsize" type="text" autocomplete="off" required value="{{ old('bedsize') }}" />
-                @error('bedsize')
-                <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="section clearfix mt-5"></div>
-
-            <!-- Lokasi -->
-            <div class="col-md-4 mt-5 mt-md-0 ajax-form">
-                <p class="name-input">Lokasi:</p>
-                <input name="location" type="text" autocomplete="off" required value="{{ old('location') }}" />
-                @error('location')
-                <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="section clearfix mt-5"></div>
-
-            <!-- Layanan Kamar -->
-            <div class="col-md-4 mt-5 mt-md-0 ajax-form">
-                <p class="name-input">Layanan Kamar:</p>
-                <input name="roomservice" type="text" autocomplete="off" required value="{{ old('roomservice') }}" />
-                @error('roomservice')
-                <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="section clearfix mt-5"></div>
-
-            <!-- Kolam Renang -->
-            <div class="col-md-4 mt-5 mt-md-0 ajax-form">
-                <p class="name-input">Kolam Renang:</p>
-                <input name="swimmingpool" type="text" autocomplete="off" required value="{{ old('swimmingpool') }}" />
-                @error('swimmingpool')
-                <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="section clearfix mt-5"></div>
-
-            <!-- Banyak Gambar -->
-            <div class="col-md-4 mt-5 mt-md-0 ajax-form">
-                <p class="name-input">Banyak Gambar:</p>
-                <input name="image[]" type="file" accept="image/*" multiple autocomplete="off" required />
-                @error('image.*')
+                <p class="name-input">Gambar:</p>
+                <input name="image" type="file" accept="image/*" autocomplete="off" required />
+                @error('image')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>

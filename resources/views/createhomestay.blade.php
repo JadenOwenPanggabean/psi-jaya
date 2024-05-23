@@ -23,7 +23,7 @@
             class="row justify-content-center padding-bottom-smaller">
             @csrf
             <div class="col-md-8">
-                <div class="subtitle with-line text-center mb-4">Admin</div>
+                <div class="subtitle with-line text-center mb-4">Owner</div>
                 <h3 class="text-center padding-bottom-small">Daftarkan Homestay</h3>
             </div>
             <div class="section clearfix"></div>

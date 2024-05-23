@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
                 'name' => $user[$i],
                 'email' => $user[$i] . '@gmail.com',
                 'password' => bcrypt($user[$i] . '@gmail.com'),
-                'role' => 'pemilik',
+                'role' => 'owner',
                 'verified' => 'true',
                 'no_hp' => '628' . str_pad(mt_rand(0, 999999999999), 12, '0', STR_PAD_LEFT),
                 'email_verified_at' => now(),

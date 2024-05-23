@@ -10,10 +10,10 @@ class NewsController extends Controller
 {
     public function index()
     {
-        return view('news');
+        $news = News::all()->sortByDesc('created_at');
+
+        return view('news', compact('news'));
     }
-
-
 
     public function create()
     {
@@ -25,17 +25,23 @@ class NewsController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
+            'image' => 'required',
         ]);
 
+        $slug = Str::slug($validatedData['title']);
+
         if ($request->hasFile('image')) {
-            $path = $image->storeAs('img/news/' . $slug, $key . '.jpg', 'public');
+            $image = $request->file('image');
+            $imageName = $slug . time() . '.' . $image->extension();
+            $path = $image->storeAs('img/news/', $imageName, 'public');
         }
 
         News::create([
-            'title' => $validatedData['name'],
+            'title' => $validatedData['title'],
+            'user_id' => auth()->user()->id,
             'description' => $validatedData['description'],
             'image' => $path,
         ]);
-        return redirect()->route('homestay', $slug);
+        return redirect()->route('news');
     }
 }

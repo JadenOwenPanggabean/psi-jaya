@@ -58,7 +58,7 @@ class HomestayController extends Controller
 
         if ($request->hasFile('image')) {
             foreach ($request->file('image') as $key => $image) {
-                $path = $image->storeAs('img/homestay/' . $slug, $key . '.jpg', 'public');
+                $path = $image->storeAs('img/homestay/' . $slug, $key . '.jpg');
                 HomestaysImage::create([
                     'homestays_id' => $homestay->id,
                     'image_location' => $path,
