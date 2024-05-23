@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Homestays;
 use App\Models\HomestaysImage;
+use App\Models\News;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -51,10 +52,36 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $title_news = [
+            'Tren Perjalanan Terbaru: Homestay Jadi Pilihan Populer Wisatawan',
+            'Bisnis Homestay Meningkat Pesat: Pengusaha Mulai Investasi di Sektor Akomodasi Ini',
+            'Homestay Berkonsep Ramah Lingkungan: Berbagai Inisiatif Menuju Akomodasi Berkelanjutan',
+            'Homestay di Era Digital: Platform Online Mempermudah Wisatawan Temukan Penginapan Lokal',
+        ];
+
+        $description_news = [
+            'Homestay semakin populer di kalangan wisatawan yang mencari pengalaman lokal yang autentik. Menawarkan kenyamanan rumah serta interaksi langsung dengan tuan rumah, homestay menjadi alternatif menarik bagi akomodasi tradisional',
+            'Bisnis homestay sedang mengalami pertumbuhan pesat, dengan pengusaha yang semakin tertarik untuk berinvestasi di sektor akomodasi ini. Fleksibilitas, biaya rendah, dan permintaan yang meningkat membuat homestay menjadi pilihan menarik',
+            'Semakin banyak homestay yang mengadopsi konsep ramah lingkungan dengan memperkenalkan inisiatif-inisiatif berkelanjutan, seperti penggunaan energi terbarukan, daur ulang, dan produk lokal, sebagai upaya untuk mengurangi jejak karbon mereka',
+            'Platform online telah mempermudah wisatawan untuk menemukan homestay yang sesuai dengan preferensi mereka. Dengan banyaknya pilihan dan ulasan dari pengguna sebelumnya, mencari akomodasi lokal menjadi lebih mudah dan transparan',
+        ];
+
+        $image_news = [
+            '7-Tips-Bisnis-Homestay-Kekinian-yang-Menguntungkan-3.jpeg',
+            'cfdfa967-ad99-410c-8eeb-62d3f82f0c06.jpeg',
+            'Mengelola-Homestay-di-Era-Digital-Memahami-Tren-Teknologi.jpg',
+            'TrenBisnisIndonesia2024HomestayPenyewaanPromosi.jpg',
+        ];
+
+        for ($i = 0; $i < count($title_news); $i++) {
+            News::create([
+                'title' => $title_news[$i],
+                'user_id' => $i + 1,
+                'description' => $description_news[$i],
+                'image' => 'img/news/' . $image_news[$i],
+            ]);
+        }
+
         $homestays_slug = [
             'blessing_homestay',
             'boraspati_homestay',

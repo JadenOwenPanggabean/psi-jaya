@@ -33,7 +33,7 @@ class NewsController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = $slug . time() . '.' . $image->extension();
-            $path = $image->storeAs('img/news/', $imageName, 'public');
+            $path = $image->storeAs('img/news', $imageName, 'public');
         }
 
         News::create([
