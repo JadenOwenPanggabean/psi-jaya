@@ -36,6 +36,9 @@
                     <div class="room-box-in">
                         <h6 class="">{{$new->title}}</h6>
                         <p class="mt-3">{{$new->description}}</p>
+                        @if (Auth::user()->role == 'admin')
+                        <a class="mt-1 btn btn-primary" href="{{route('delete.news', $new->id)}}">HAPUS</a>
+                        @endif
                     </div>
                 </div>
             </div>

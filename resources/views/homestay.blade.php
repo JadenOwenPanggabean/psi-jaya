@@ -94,7 +94,7 @@
                             {{$homestay->available === 'true' ? 'Tersedia' : 'Tidak Tersedia'}}
                         </a>
                     </div>
-                    @if ($homestay->user_id == Auth::id())
+                    @if ($homestay->user_id == Auth::id() || Auth::user()->role == 'admin')
                     <div class="col-12 pt-4">
                         <a href="{{route('delete.homestay', $homestay->id)}}" class="booking-button"
                             style="background-color: red;">

@@ -12,13 +12,15 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware([IsOwner::class])->group(function () {
         Route::get('/owner/homestay/create', [HomestayController::class, 'create'])->name('create.homestay');
         Route::post('/owner/homestay/store', [HomestayController::class, 'store'])->name('store.homestay');
-        Route::get('/owner/homestay/delete/{homestay:id}', [HomestayController::class, 'delete'])->name('delete.homestay');
         Route::get('/owner/homestay/available/{homestay:id}', [HomestayController::class, 'available'])->name('available.homestay');
     });
+
+    Route::get('/owner/homestay/delete/{homestay:id}', [HomestayController::class, 'delete'])->name('delete.homestay');
 
     Route::middleware([IsAdmin::class])->group(function () {
         Route::get('/admin/news/create', [NewsController::class, 'create'])->name('create.news');
         Route::post('/admin/news/store', [NewsController::class, 'store'])->name('store.news');
+        Route::get('/owner/news/delete/{news:id}', [NewsController::class, 'delete'])->name('delete.news');
     });
 });
 

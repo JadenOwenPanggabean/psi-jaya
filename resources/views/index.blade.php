@@ -34,7 +34,7 @@
                         <p class="mt-3">
                             {{$item->description}}
                         </p>
-                        <a class="mt-1 btn btn-primary" href="/homestay/{{$item->slug}}">Book</a>
+                        <a class="mt-1 btn btn-primary" href="/homestay/{{$item->slug}}">Pesan</a>
                         <div class="room-icons mt-4 pt-4">
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                         <p class="mt-3">
                             {{$item->description}}
                         </p>
-                        <a class="mt-1 btn btn-primary" href="/homestay/{{$item->slug}}">Book</a>
+                        <a class="mt-1 btn btn-primary" href="/homestay/{{$item->slug}}">Pesan</a>
                         <div class="room-icons mt-4 pt-4">
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         <p class="mt-3">
                             {{$item->description}}
                         </p>
-                        <a class="mt-1 btn btn-primary" href="/homestay/{{$item->slug}}">Book</a>
+                        <a class="mt-1 btn btn-primary" href="/homestay/{{$item->slug}}">Pesan</a>
                         <div class="room-icons mt-4 pt-4">
                         </div>
                     </div>
