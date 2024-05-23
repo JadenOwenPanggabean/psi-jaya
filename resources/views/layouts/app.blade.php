@@ -91,7 +91,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-6 px-0 px-md-3 pl-1 py-3">
-                        <span class="call-top">call us:</span> <a href="#" class="call-top">085270676454</a>
+                        {{-- <span class="call-top">call us:</span> <a href="#" class="call-top">085270676454</a> --}}
                     </div>
                     <div class="col-6 px-0 px-md-3 py-3 text-right">
                         @if (Auth()->check())
@@ -113,7 +113,7 @@
         <div class="menu">
             <a href="index.html">
                 <div class="logo">
-                    <img src="img/logo.png" alt="">
+                    <img src="{{url('img/logo.png')}}" alt="">
                 </div>
             </a>
             <ul>

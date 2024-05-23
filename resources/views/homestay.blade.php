@@ -79,60 +79,12 @@
                     </div>
                 </div>
                 <div class="col-lg-4 order-first order-lg-last">
-                    <div class="section background-dark p-4">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="input-daterange input-group" id="flight-datepicker">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-item">
-                                                <span class="fontawesome-calendar"></span>
-                                                <input class="input-sm" type="text" autocomplete="off" id="start-date-1"
-                                                    name="start" placeholder="chech-in date"
-                                                    data-date-format="DD, MM d" />
-                                                <span class="date-text date-depart"></span>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 pt-4">
-                                            <div class="form-item">
-                                                <span class="fontawesome-calendar"></span>
-                                                <input class="input-sm" type="text" autocomplete="off" id="end-date-1"
-                                                    name="end" placeholder="check-out date"
-                                                    data-date-format="DD, MM d" />
-                                                <span class="date-text date-return"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-12 pt-4">
-                                        <select name="adults" class="wide">
-                                            <option data-display="adults">adults</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-12 pt-4">
-                                        <select name="children" class="wide">
-                                            <option data-display="children">children</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 pt-4">
-                                <a class="booking-button" href="#">book now</a>
-                            </div>
-                        </div>
+                    <div class="text-center" data-scroll-reveal="enter bottom move 50px over 0.7s after 0.2s">
+                        <p class="mb-0" style="color: #000; font"><b>Hubungi nomor di bawah ini untuk memesan:</b></p>
+                        <h4>+{{$user_no_hp}}</h4>
+                    </div>
+                    <div class="col-12 pt-4">
+                        <a class="booking-button" href="{{url('https://api.whatsapp.com/send/?phone='. $user_no_hp)}}">Hubungi Sekarang</a>
                     </div>
                 </div>
             </div>

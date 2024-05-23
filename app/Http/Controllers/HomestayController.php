@@ -13,7 +13,8 @@ class HomestayController extends Controller
     {
         $homestay = Homestays::where('slug', $title_slug)->firstOrFail();
         $homestay_images = HomestaysImage::where('homestays_id', $homestay->id)->get();
-        return view('homestay', compact('homestay', 'homestay_images'));
+        $user_no_hp = $homestay->user->no_hp;
+        return view('homestay', compact('homestay', 'homestay_images', 'user_no_hp'));
     }
 
     public function create()
@@ -41,6 +42,7 @@ class HomestayController extends Controller
 
         $homestay = Homestays::create([
             'name' => $validatedData['name'],
+            'user_id' => auth()->user()->id,
             'slug' => $slug,
             'description' => $validatedData['description'],
             'features' => $validatedData['feature'],

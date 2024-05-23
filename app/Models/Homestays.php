@@ -6,11 +6,27 @@ use Illuminate\Database\Eloquent\Model;
 class Homestays extends Model
 {
     protected $fillable = [
-        'name', 'slug', 'description', 'features', 'room_size', 'occupancy', 'view', 'smoking', 'bed_size', 'location', 'room_service', 'swimming_pool'
+        'name',
+        'user_id',
+        'slug',
+        'description',
+        'features',
+        'room_size',
+        'occupancy',
+        'view',
+        'smoking',
+        'bed_size',
+        'location',
+        'room_service',
+        'swimming_pool'
     ];
 
     public function images()
     {
         return $this->hasMany(HomestaysImage::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

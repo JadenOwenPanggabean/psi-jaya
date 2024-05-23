@@ -17,21 +17,35 @@ class User extends Authenticatable
 
     // Kolom yang dapat diisi
     protected $fillable = [
-        'name', 'email', 'password', 'username', // tambahkan 'username' ke fillable
+        'name',
+        'email',
+        'password',
+        'username',
+        'no_hp',
+        'verified',
+        'role', // tambahkan 'username' ke fillable
     ];
 
     // Metode untuk mengecek apakah pengguna adalah Admin
-    public function isAdmin() {
+    public function isAdmin()
+    {
         return $this->role === self::ROLE_ADMIN;
     }
 
     // Metode untuk mengecek apakah pengguna adalah Pemilik Homestay
-    public function isHomestayOwner() {
+    public function isHomestayOwner()
+    {
         return $this->role === self::ROLE_HOMESTAY_OWNER;
     }
 
     // Metode untuk mengecek apakah pengguna adalah Pengguna biasa
-    public function isUser() {
+    public function isUser()
+    {
         return $this->role === self::ROLE_USER;
+    }
+
+    public function homestays()
+    {
+        return $this->hasMany(Homestays::class);
     }
 }
