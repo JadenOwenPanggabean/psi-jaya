@@ -18,7 +18,8 @@ class Homestays extends Model
         'bed_size',
         'location',
         'room_service',
-        'swimming_pool'
+        'swimming_pool',
+        'available',
     ];
 
     public function images()

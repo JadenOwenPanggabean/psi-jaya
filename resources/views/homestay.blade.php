@@ -84,8 +84,24 @@
                         <h4>+{{$user_no_hp}}</h4>
                     </div>
                     <div class="col-12 pt-4">
-                        <a class="booking-button" href="{{url('https://api.whatsapp.com/send/?phone='. $user_no_hp)}}">Hubungi Sekarang</a>
+                        <a class="booking-button"
+                            href="{{url('https://api.whatsapp.com/send/?phone='. $user_no_hp)}}">Hubungi Sekarang</a>
                     </div>
+                    <div class="col-12 pt-4">
+                        <a class="booking-button"
+                            href="{{$homestay->user_id == Auth::id() ? route('available.homestay', $homestay->id) : 'javascript:void(0)'}}"
+                            style="{{$homestay->available === 'true' ? 'background-color: #6dc234 !important' : 'background-color: red !important'}}; {{$homestay->user_id == Auth::id() ? '' : 'pointer-events: none'}}">
+                            {{$homestay->available === 'true' ? 'Tersedia' : 'Tidak Tersedia'}}
+                        </a>
+                    </div>
+                    @if ($homestay->user_id == Auth::id())
+                    <div class="col-12 pt-4">
+                        <a href="{{route('delete.homestay', $homestay->id)}}" class="booking-button"
+                            style="background-color: red;">
+                            Hapus Homestay
+                        </a>
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

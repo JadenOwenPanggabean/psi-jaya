@@ -25,6 +25,7 @@ return new class extends Migration {
             $table->string('location');
             $table->string('room_service');
             $table->string('swimming_pool');
+            $table->enum('available', ['true', 'false'])->default('true');
             $table->timestamps();
         });
     }

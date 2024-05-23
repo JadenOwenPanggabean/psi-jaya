@@ -12,6 +12,8 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware([IsOwner::class])->group(function () {
         Route::get('/owner/homestay/create', [HomestayController::class, 'create'])->name('create.homestay');
         Route::post('/owner/homestay/store', [HomestayController::class, 'store'])->name('store.homestay');
+        Route::get('/owner/homestay/delete/{homestay:id}', [HomestayController::class, 'delete'])->name('delete.homestay');
+        Route::get('/owner/homestay/available/{homestay:id}', [HomestayController::class, 'available'])->name('available.homestay');
     });
 
     Route::middleware([IsAdmin::class])->group(function () {

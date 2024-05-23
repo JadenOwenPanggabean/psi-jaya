@@ -69,4 +69,24 @@ class HomestayController extends Controller
         return redirect()->route('homestay', $slug);
     }
 
+
+    public function delete($id)
+    {
+        $homestay = Homestays::where('id', $id)->firstOrFail();
+        $homestay->delete();
+        return redirect()->route('home');
+    }
+
+    public function available($id)
+    {
+        $homestay = Homestays::where('id', $id)->firstOrFail();
+        if ($homestay->available === 'true') {
+            $homestay->available = 'false';
+        } else {
+            $homestay->available = 'true';
+        }
+        $homestay->save();
+        return redirect()->route('homestay', $homestay->slug);
+    }
+
 }
