@@ -95,10 +95,11 @@
                     </div>
                     <div class="col-6 px-0 px-md-3 py-3 text-right">
                         @if (Auth()->check())
-                        @if (Auth()->user()->role == 'owner')
+                        @if (Auth()->user()->role == 'owner' && Auth()->user()->verified == 'true')
                         <a href="{{ route('create.homestay') }}" class="social-top">Create Homestay</a>
                         @endif
                         @if (Auth()->user()->role == 'admin')
+                        <a href="{{ route('verify.owner') }}" class="social-top">Verify Owner</a>
                         <a href="{{ route('create.news') }}" class="social-top">Create News</a>
                         @endif
                         <a href="{{ route('logout') }}"

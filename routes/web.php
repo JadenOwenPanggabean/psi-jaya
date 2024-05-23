@@ -3,6 +3,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomestayController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PayController;
+use App\Http\Controllers\VerifyOwnerController;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsOwner;
 
@@ -21,6 +22,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/news/create', [NewsController::class, 'create'])->name('create.news');
         Route::post('/admin/news/store', [NewsController::class, 'store'])->name('store.news');
         Route::get('/owner/news/delete/{news:id}', [NewsController::class, 'delete'])->name('delete.news');
+
+        Route::get('/verifyowner', [VerifyOwnerController::class, 'index'])->name('verify.owner');
+        Route::get('/verifyowner/verify/{user:id}', [VerifyOwnerController::class, 'verify'])->name('ver.owner');
     });
 });
 
