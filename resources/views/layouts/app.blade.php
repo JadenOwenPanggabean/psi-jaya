@@ -111,29 +111,17 @@
             </div>
         </div>
         <div class="menu">
-            <a href="index.html">
+            <a href="{{route('home')}}">
                 <div class="logo">
                     <img src="{{url('img/logo.png')}}" alt="">
                 </div>
             </a>
             <ul>
                 <li>
-                    <a class="curent-page" href="/">Home</a>
+                    <a href="{{route('home')}}""><span>Home</span></a>
                 </li>
                 <li>
-                    <a href="#">room</a>
-                </li>
-                <li>
-                    <a href="#">about us</a>
-                </li>
-                <li>
-                    <a href="#">news</a>
-                </li>
-                <li>
-                    <a href="#">contact</a>
-                </li>
-                <li>
-                    <a href="#"><span>book now</span></a>
+                    <a href=" {{route('news')}}">News</a>
                 </li>
             </ul>
         </div>
