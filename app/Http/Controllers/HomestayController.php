@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Homestays;
 use App\Models\HomestaysImage;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -89,4 +90,24 @@ class HomestayController extends Controller
         return redirect()->route('homestay', $homestay->slug);
     }
 
+    public function addorder(Request $request)
+    {
+        $validatedData = $request->validate([
+            'start' => 'required|string',
+            'end' => 'required|string',
+            'peoples' => 'required|string',
+        ]);
+
+        Order::create([
+            'user_id' => auth()->user()->id,
+            'homestays_id' => $request->homestay_id,
+            'in' => $validatedData['start'],
+            'out' => $validatedData['end'],
+            'peoples' => $validatedData['peoples'],
+        ]);
+        
+        $homestay = Homestays::where('id', $request->homestay_id)->firstOrFail();
+
+        return redirect(url('https://api.whatsapp.com/send/?phone='. $homestay->user->no_hp));
+    }
 }

@@ -65,7 +65,29 @@
     <link rel="apple-touch-icon" sizes="72x72" href="{{url('img/logo.png')}}">
     <link rel="apple-touch-icon" sizes="114x114" href="{{url('img/logo.png')}}">
 
+        <style>
+            html, body {
+    height: 100%;
+    margin: 0;
+}
 
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+      </style>
 </head>
 
 <body>
@@ -74,14 +96,11 @@
         <div class="loader__figure"></div>
     </div>
 
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22592.67195790023!2d99.06679797945833!3d2.3360516996623657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302e0415b8f7da39%3A0xc6beb74287f355a5!2sBalige%2C%20Sibola%20Hotangsas%2C%20Balige%2C%20Toba%2C%20North%20Sumatra!5e1!3m2!1sen!2sid!4v1716449397727!5m2!1sen!2sid"
-        width="1920" height="240" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-
-    <div class="section mt-3 z-bigger">
+    <div class="center-container">
         <div class="container">
+            <div class="text-center">
+                <img src="img/logo.png" alt="Login Image" class="login-image">
+            </div>
             <form class="row justify-content-center padding-bottom-smaller" method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="col-md-8">
@@ -106,7 +125,6 @@
                     <button type="submit" class="send_message" id="send" data-lang="en"><span>submit</span></button>
                 </div>
                 <div class="section clearfix"></div>
-
                 <div class="col-md-8 mt-5">
                     <div class="subtitle text-center mb-4">Tidak punya akun?</div>
                     <a class="subtitle with-line text-center mb-4" href="{{ route('register') }}">
@@ -116,6 +134,8 @@
             </form>
         </div>
     </div>
+    
+    
     <!-- JAVASCRIPT
             ================================================== -->
     <script src="{{url('js/jquery.min.js')}}"></script>

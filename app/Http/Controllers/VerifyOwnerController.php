@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-
+use Illuminate\Http\Request;
 
 class VerifyOwnerController extends Controller
 {
@@ -15,13 +15,11 @@ class VerifyOwnerController extends Controller
 
     public function verify($id)
     {
-        $user = User::where('id', $id)->first();
-        if ($user->verified == 'true') {
-            $user->verified = 'false';
-        } else {
-            $user->verified = 'true';
+        $user = User::find($id);
+        if ($user && $user->role !== 'admin') {
+            $user->verified = $user->verified == 'true' ? 'false' : 'true';
+            $user->save();
         }
-        $user->save();
         return redirect()->route('verify.owner');
     }
 }

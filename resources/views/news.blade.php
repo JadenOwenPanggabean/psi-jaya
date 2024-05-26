@@ -7,7 +7,7 @@
 
 <div class="section big-35-height over-hide z-bigger">
 
-    <div class="parallax parallax-top""></div>
+    <div class="parallax parallax-top" style="background-image: url('{{url('img/rooms.jpg')}}')"></div>
     <div class=" dark-over-pages"></div>
 
     <div class="hero-center-section pages">
@@ -36,8 +36,10 @@
                     <div class="room-box-in">
                         <h6 class="">{{$new->title}}</h6>
                         <p class="mt-3">{{$new->description}}</p>
+                        @if (Auth::check())
                         @if (Auth::user()->role == 'admin')
                         <a class="mt-1 btn btn-primary" href="{{route('delete.news', $new->id)}}">HAPUS</a>
+                        @endif
                         @endif
                     </div>
                 </div>

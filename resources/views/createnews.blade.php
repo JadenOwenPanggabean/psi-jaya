@@ -57,7 +57,6 @@
                 @enderror
             </div>
 
-
             <div class="section clearfix"></div>
             <div class="col-md-8 mt-3 ajax-form text-center">
                 <button class="send_message" type="submit" data-lang="en"><span>submit</span></button>

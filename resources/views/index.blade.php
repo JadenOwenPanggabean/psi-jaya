@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="section big-55-height over-hide z-bigger">
 
     <div class="parallax parallax-top" style="background-image: url('{{url('img/rooms.jpg')}}')"></div>
