@@ -85,7 +85,7 @@
                     </div>
                     <div class="col-12 pt-4">
                         <a class="booking-button"
-                            href="{{url('https://api.whatsapp.com/send/?phone='. $user_no_hp)}}">Hubungi Sekarang</a>
+                            href="{{url('https://api.whatsapp.com/send/?phone='. $user_no_hp)}}">Pesan</a>
                     </div>
                     <div class="col-12 pt-4">
                         <a class="booking-button"
