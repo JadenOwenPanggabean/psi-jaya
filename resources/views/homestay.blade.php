@@ -138,6 +138,10 @@
                             </div>
                         </div>
                     </form>
+                    <div class="mt-4 text-center" data-scroll-reveal="enter bottom move 50px over 0.7s after 0.2s">
+                        <p class="mb-0" style="color: #000;"><b>Harga per malam:</b></p>
+                        <h4>Rp. {{ number_format($homestay->price, 0, ',', '.') }}</h4>
+                    </div>
                     @endif
                     <div class="mt-4 text-center" data-scroll-reveal="enter bottom move 50px over 0.7s after 0.2s">
                         <p class="mb-0" style="color: #000;"><b>Hubungi nomor di bawah ini untuk memesan:</b></p>
