@@ -37,6 +37,7 @@ class HomestayController extends Controller
             'location' => 'required|string',
             'roomservice' => 'required|string',
             'swimmingpool' => 'required|string',
+            'price' => 'required|integer',
         ]);
 
         $slug = Str::slug($validatedData['name']);
@@ -55,6 +56,7 @@ class HomestayController extends Controller
             'location' => $validatedData['location'],
             'room_service' => $validatedData['roomservice'],
             'swimming_pool' => $validatedData['swimmingpool'],
+            'price' => $validatedData['price'],
         ]);
 
         if ($request->hasFile('image')) {

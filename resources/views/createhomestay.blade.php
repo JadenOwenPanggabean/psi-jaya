@@ -138,6 +138,16 @@
             </div>
             <div class="section clearfix mt-5"></div>
 
+            <!-- Harga -->
+            <div class="col-md-4 mt-5 mt-md-0 ajax-form">
+                <p class="name-input">Harga: *(250000)</p>
+                <input name="price" type="number" autocomplete="off" required value="{{ old('price') }}" />
+                @error('price')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="section clearfix mt-5"></div>
+
             <!-- Banyak Gambar -->
             <div class="col-md-4 mt-5 mt-md-0 ajax-form">
                 <p class="name-input">Banyak Gambar:</p>

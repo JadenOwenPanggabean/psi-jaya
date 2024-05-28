@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->string('in');
             $table->string('out');
             $table->string('peoples');
+            $table->string('bukti_bayar')->nullable();
             $table->timestamps();
         });
     }

@@ -10,7 +10,8 @@ class Order extends Model
         'homestays_id',
         'in',
         'out',
-        'peoples'
+        'peoples',
+        'bukti_bayar',
     ];
 
     public function user()

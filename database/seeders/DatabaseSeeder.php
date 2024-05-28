@@ -119,7 +119,8 @@ class DatabaseSeeder extends Seeder
                 'bed_size' => 'King and regular',
                 'location' => 'Huta Simangunsong, pantai, Lumban Bulbul, Kec. Balige, Sumatera Utara',
                 'room_service' => 'Yes',
-                'swimming_pool' => 'No'
+                'swimming_pool' => 'No',
+                'price' => '1000000',
             ]);
         }
 
