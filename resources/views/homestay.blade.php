@@ -79,6 +79,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 order-first order-lg-last">
+                    @if ($homestay->available === 'true')
                     <form method="post" action="{{ route('addorder') }}" class="section background-dark p-4">
                         @csrf
                         <input type="text" name="homestay_id" value="{{$homestay->id}}" hidden>
@@ -137,6 +138,7 @@
                             </div>
                         </div>
                     </form>
+                    @endif
                     <div class="mt-4 text-center" data-scroll-reveal="enter bottom move 50px over 0.7s after 0.2s">
                         <p class="mb-0" style="color: #000; font"><b>Hubungi nomor di bawah ini untuk memesan:</b></p>
                         <h4>+{{$user_no_hp}}</h4>
