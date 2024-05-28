@@ -140,7 +140,7 @@
                     </form>
                     @endif
                     <div class="mt-4 text-center" data-scroll-reveal="enter bottom move 50px over 0.7s after 0.2s">
-                        <p class="mb-0" style="color: #000; font"><b>Hubungi nomor di bawah ini untuk memesan:</b></p>
+                        <p class="mb-0" style="color: #000;"><b>Hubungi nomor di bawah ini untuk memesan:</b></p>
                         <h4>+{{$user_no_hp}}</h4>
                     </div>
                     <div class="col-12 pt-4">

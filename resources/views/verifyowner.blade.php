@@ -29,7 +29,7 @@
                                     <form action="{{ route('ver.owner', $user->id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('PATCH')
-                                        <button type="submit" class="btn btn-link">
+                                        <button type="submit" style="color: black" class="btn btn-link">
                                             {{ $user->verified == 'true' ? 'Verified (Click to Unverify)' : 'Not Verified (Click to Verify)' }}
                                         </button>
                                     </form>
