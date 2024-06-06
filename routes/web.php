@@ -15,6 +15,8 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware([IsOwner::class])->group(function () {
         Route::get('/owner/homestay/create', [HomestayController::class, 'create'])->name('create.homestay');
         Route::post('/owner/homestay/store', [HomestayController::class, 'store'])->name('store.homestay');
+        Route::get('/owner/homestay/edit/{id}', [HomestayController::class, 'edit'])->name('edit.homestay');
+        Route::put('/owner/homestay/update/{id}', [HomestayController::class, 'update'])->name('update.homestay'); 
         Route::get('/owner/homestay/available/{homestay:id}', [HomestayController::class, 'available'])->name('available.homestay');
 
         Route::get('/pay', [PayController::class, 'index'])->name('pay');

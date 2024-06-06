@@ -75,6 +75,35 @@ class HomestayController extends Controller
         return redirect()->route('homestay', $slug)->with('success', 'Data Atribut Berhasil Ditambahkan.');;
     }
 
+    public function edit($id)
+    {
+        $homestay = Homestays::findOrFail($id);
+        return view('edithomestay', compact('homestay'));
+    }
+
+    public function update(Request $request, string $id)
+{
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        'feature' => 'required|string',
+        'roomsize' => 'required|string',
+        'occupancy' => 'required|string',
+        'view' => 'required|string',
+        'smoking' => 'required|string',
+        'bedsize' => 'required|string',
+        'location' => 'required|string',
+        'roomservice' => 'required|string',
+        'swimmingpool' => 'required|string',
+        'price' => 'required|integer',
+    ]);
+
+    $homestay = Homestays::findOrFail($id);
+    $homestay->update($validatedData);
+
+    return redirect()->route('homestay', $homestay->slug)->with('success', 'Data Atribut Berhasil Ditambahkan.');
+}
+
 
     public function delete($id)
     {
