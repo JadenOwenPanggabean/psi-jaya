@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="section big-55-height over-hide z-bigger">
-    <div class="parallax parallax-top" style="background-image: url('{{url('img/rooms.jpg')}}')"></div>
+    <div class="parallax parallax-top" style="background-image: url('{{url('https://laketoba.id/images/beranda/bgpa.jpeg')}}')"></div>
     <div class="dark-over-pages"></div>
     <div class="hero-center-section pages">
         <div class="container">

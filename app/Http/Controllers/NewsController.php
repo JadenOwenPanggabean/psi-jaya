@@ -42,13 +42,13 @@ class NewsController extends Controller
             'description' => $validatedData['description'],
             'image' => $path,
         ]);
-        return redirect()->route('news');
+        return redirect()->route('news')->with('success', 'Data Atribut Berhasil Ditambahkan.');
     }
 
     public function delete($id)
     {
         $news = News::find($id);
         $news->delete();
-        return redirect()->route('news');
+        return redirect()->route('news')->with('warning', 'Data Atribut Berhasil Dihapus.');;
     }
 }

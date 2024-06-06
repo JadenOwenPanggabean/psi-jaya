@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Homestays;
 use App\Models\HomestaysImage;
 use App\Models\Order;
+use App\Models\User;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -57,6 +59,7 @@ class HomestayController extends Controller
             'room_service' => $validatedData['roomservice'],
             'swimming_pool' => $validatedData['swimmingpool'],
             'price' => $validatedData['price'],
+            'available' => 'true',
         ]);
 
         if ($request->hasFile('image')) {
@@ -69,7 +72,7 @@ class HomestayController extends Controller
             }
         }
 
-        return redirect()->route('homestay', $slug);
+        return redirect()->route('homestay', $slug)->with('success', 'Data Atribut Berhasil Ditambahkan.');;
     }
 
 
@@ -77,7 +80,7 @@ class HomestayController extends Controller
     {
         $homestay = Homestays::where('id', $id)->firstOrFail();
         $homestay->delete();
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'Data Atribut Berhasil Dihapus.');
     }
 
     public function available($id)
@@ -92,24 +95,71 @@ class HomestayController extends Controller
         return redirect()->route('homestay', $homestay->slug);
     }
 
-    public function addorder(Request $request)
+    public function addorder(Request $request, $slug)
     {
-        $validatedData = $request->validate([
-            'start' => 'required|string',
-            'end' => 'required|string',
-            'peoples' => 'required|string',
-        ]);
+        $homestay = Homestays::where('slug', $slug)->first(); 
+        $price = $homestay->price; 
+        $start = new DateTime($request->check_in_date);
+        $end = new DateTime($request->check_out_date);
+        $interval = $start->diff($end);
+        $days = $interval->format('%a');
 
         Order::create([
             'user_id' => auth()->user()->id,
             'homestays_id' => $request->homestay_id,
-            'in' => $validatedData['start'],
-            'out' => $validatedData['end'],
-            'peoples' => $validatedData['peoples'],
+            'check_in_date' => $request->check_in_date,
+            'check_out_date' => $request->check_out_date,
+            'people_count' => $request->people_count, 
+            'total' => $request->people_count * intval($price) * $days,
+            'status' => 'Belum Verifikasi',
         ]);
-        
-        $homestay = Homestays::where('id', $request->homestay_id)->firstOrFail();
+
+        // return redirect()->route('homestay')->with('success', 'Data Atribut Berhasil Ditambahkan.');
 
         return redirect(url('https://api.whatsapp.com/send/?phone='. $homestay->user->no_hp));
+    }
+
+    public function updateAvailable(Request $request, $id)
+    {
+        $statuspesan = Homestays::find($id);
+        if (!$statuspesan) {
+            return response()->json(['message' => 'Data Kontrak Tidak Ditemukan'], 404);
+        }
+
+        $statuspesan->status = 'false';
+        $statuspesan->save();
+
+        return redirect()->route('home')->with('success', 'Data Atribut Berhasil Dihapus.');
+    } 
+
+    
+    public function DataHapus()
+    {
+        $datahapus = Homestays::where('status', "false")
+    ->orderBy('created_at', 'desc')
+    ->paginate(5); 
+
+        // if ($datahapus->available === 'true') {
+        //     $datahapus->available = 'false';
+        // } else {
+        //     $datahapus->available = 'true';
+        // }
+
+        // $datahapus->save();
+        
+        return view('historyhomestay', compact('datahapus'));
+    }
+
+    public function repairAvailable(Request $request, $id)
+    {
+        $statuspesan = Homestays::find($id);
+        if (!$statuspesan) {
+            return response()->json(['message' => 'Data Kontrak Tidak Ditemukan'], 404);
+        }
+
+        $statuspesan->status = 'true';
+        $statuspesan->save();
+
+        return redirect()->route('DataHapus')->with('success', 'Data Atribut Berhasil Diubah.');
     }
 }

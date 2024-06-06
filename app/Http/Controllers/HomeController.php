@@ -28,4 +28,16 @@ class HomeController extends Controller
         $homestay = Homestays::get();
         return view('index', compact('homestay'));
     }
+
+    public function availables($id)
+    {
+        $homestay = Homestays::where('id', $id)->firstOrFail();
+        if ($homestay->status === 'true') {
+            $homestay->status = 'false';
+        } else {
+            $homestay->status = 'true';
+        }
+        $homestay->save();
+        return redirect()->route('home');
+    }
 }

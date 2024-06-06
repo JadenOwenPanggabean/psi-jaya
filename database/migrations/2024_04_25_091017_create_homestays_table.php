@@ -27,6 +27,7 @@ return new class extends Migration {
             $table->string('swimming_pool');
             $table->integer('price');
             $table->enum('available', ['true', 'false'])->default('true');
+            $table->string('status')->default('true');
             $table->timestamps();
         });
     }
