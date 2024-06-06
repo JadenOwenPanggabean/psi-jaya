@@ -49,14 +49,15 @@
     <!-- CSS
 	================================================== -->
     <link rel="stylesheet" href="{{url('css/bootstrap.min.css')}}" />
-    <link rel="stylesheet" href="{{url('css/font-awesome.min.css')}}" />
+    {{-- <link rel="stylesheet" href="{{url('css/font-awesome.min.css')}}" /> --}}
     <link rel="stylesheet" href="{{url('css/ionicons.min.css')}}" />
     <link rel="stylesheet" href="{{url('css/datepicker.css')}}" />
-    <link rel="stylesheet" href="{{url('css/jquery.fancybox.min.css')}}" />
+    {{-- <link rel="stylesheet" href="{{url('css/jquery.fancybox.min.css')}}" /> --}}
     <link rel="stylesheet" href="{{url('css/owl.carousel.css')}}" />
     <link rel="stylesheet" href="{{url('css/owl.transitions.css')}}" />
     <link rel="stylesheet" href="{{url('css/style.css')}}" />
-    <link rel="stylesheet" href="{{url('css/colors/color.css')}}" />
+    {{-- <link rel="stylesheet" href="{{url('css/colors/color.css')}}" /> --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
     <!-- Favicons
 	================================================== -->
@@ -77,8 +78,7 @@
     <svg class="hidden">
         <svg id="icon-nav" viewBox="0 0 152 63">
             <title>navarrow</title>
-            <path
-                d="M115.737 29L92.77 6.283c-.932-.92-1.21-2.84-.617-4.281.594-1.443 1.837-1.862 2.765-.953l28.429 28.116c.574.57.925 1.557.925 2.619 0 1.06-.351 2.046-.925 2.616l-28.43 28.114c-.336.327-.707.486-1.074.486-.659 0-1.307-.509-1.69-1.437-.593-1.442-.315-3.362.617-4.284L115.299 35H3.442C2.032 35 .89 33.656.89 32c0-1.658 1.143-3 2.552-3H115.737z" />
+            <path d="M115.737 29L92.77 6.283c-.932-.92-1.21-2.84-.617-4.281.594-1.443 1.837-1.862 2.765-.953l28.429 28.116c.574.57.925 1.557.925 2.619 0 1.06-.351 2.046-.925 2.616l-28.43 28.114c-.336.327-.707.486-1.074.486-.659 0-1.307-.509-1.69-1.437-.593-1.442-.315-3.362.617-4.284L115.299 35H3.442C2.032 35 .89 33.656.89 32c0-1.658 1.143-3 2.552-3H115.737z" />
         </svg>
     </svg>
 
@@ -97,9 +97,11 @@
                         @if (Auth()->check())
                         @if (Auth()->user()->role == 'owner' && Auth()->user()->verified == 'true')
                         <a href="{{ route('create.homestay') }}" class="social-top">Create Homestay</a>
+                        <a href="{{ route('pay') }}" class="social-top">History Pemesanan</a>
                         @endif
                         @if (Auth()->user()->role == 'admin')
                         <a href="{{ route('verify.owner') }}" class="social-top">Verify Owner</a>
+                        <a href="{{ route('DataHapus') }}" class="social-top">Data Homestay</a>
                         <a href="{{ route('create.news') }}" class="social-top">Create News</a>
                         @endif
                         <a href="{{ route('logout') }}"
@@ -124,7 +126,7 @@
             </a>
             <ul>
                 <li>
-                    <a href="{{route('home')}}""><span>Home</span></a>
+                    <a href="{{route('home')}}"><span>Home</span></a>
                 </li>
                 <li>
                     <a href=" {{route('news')}}">News</a>
