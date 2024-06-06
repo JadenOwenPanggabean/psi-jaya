@@ -111,10 +111,8 @@ class HomestayController extends Controller
             'check_out_date' => $request->check_out_date,
             'people_count' => $request->people_count, 
             'total' => $request->people_count * intval($price) * $days,
-            'status' => 'Belum Verifikasi',
+            'status' => "Belum Verifikasi",
         ]);
-
-        // return redirect()->route('homestay')->with('success', 'Data Atribut Berhasil Ditambahkan.');
 
         return redirect(url('https://api.whatsapp.com/send/?phone='. $homestay->user->no_hp));
     }
@@ -137,15 +135,7 @@ class HomestayController extends Controller
     {
         $datahapus = Homestays::where('status', "false")
     ->orderBy('created_at', 'desc')
-    ->paginate(5); 
-
-        // if ($datahapus->available === 'true') {
-        //     $datahapus->available = 'false';
-        // } else {
-        //     $datahapus->available = 'true';
-        // }
-
-        // $datahapus->save();
+    ->paginate(5);  
         
         return view('historyhomestay', compact('datahapus'));
     }

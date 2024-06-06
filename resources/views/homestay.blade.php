@@ -92,9 +92,9 @@
                                                 <label for="start-date-1" class="input-label">
                                                     <span class="fontawesome-calendar"></span>
                                                     <input required class="input-sm" type="date" autocomplete="off"
-                                                        id="start-date-1" name="start" placeholder="tanggal mulai" />
+                                                        id="check_in_date" name="check_in_date" placeholder="tanggal mulai" />
                                                 </label>
-                                                @error('start')
+                                                @error('check_in_date')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                                 <span class="date-text date-depart"></span>
@@ -105,9 +105,9 @@
                                                 <label for="end-date-1" class="input-label">
                                                     <span class="fontawesome-calendar"></span>
                                                     <input required class="input-sm" type="date" autocomplete="off"
-                                                        id="end-date-1" name="end" placeholder="tanggal selesai" />
+                                                        id="check_out_date" name="check_out_date" placeholder="tanggal selesai" />
                                                 </label>
-                                                @error('end')
+                                                @error('check_out_date')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                                 <span class="date-text date-return"></span>
@@ -119,7 +119,7 @@
                             <div class="col-12 order">
                                 <div class="row">
                                     <div class="col-12 pt-4">
-                                        <input type="number" name="people_count" id="people_count"> 
+                                        <input type="number" name="people_count" id="people_count" required min="1" placeholder="Number of people">
                                         @error('people_count')
                                         <span class="text-danger">{{ $message }}</span>
                                         @enderror

@@ -7,7 +7,7 @@ class Order extends Model
 {
     protected $fillable = [
         'user_id', 'homestays_id', 'check_in_date', 'check_out_date',
-        'peoples', 'price', 'total', 'bukti_bayar',
+        'people_count', 'price', 'total', 'bukti_bayar', 'status',
     ];
 
     public function homestay()
