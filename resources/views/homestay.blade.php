@@ -162,7 +162,7 @@
                         </div>
                     @endif 
 
-                    <div class="col-12 pt-4">
+                    <div class="col-12 pt-3">
                         <a type="button" href="{{ route('edit.homestay', $homestay->id) }}" class="edit-button" >Edit Homestay</a>
                     </div>
                     
