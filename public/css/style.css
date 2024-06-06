@@ -1012,8 +1012,41 @@ Mobile style's
 .booking-button:hover{
 	background-color: #343434;
 	color: #fff;
+}	
+
+.delete-button{ 
+	color: #fff;
+	background-color: red; 
+	width: 100%;
+	font-size: 13px;
+	text-transform: uppercase;
+	line-height: 1.2;
+	font-weight: 300;
+	letter-spacing: 1px; 
+	text-align: center;
+	padding-top: 13px;
+	padding-bottom: 13px;
+	-webkit-transition: all 200ms linear;
+	transition: all 200ms linear; 
 }
 
+.edit-button{
+	position: relative;
+	color: #030303;
+	border: solid 1px #000000;
+	width: 100%;
+	font-size: 13px;
+	text-transform: uppercase;
+	line-height: 1.2;
+	font-weight: 300;
+	letter-spacing: 1px;
+	outline: none;
+	text-align: center;
+	padding-top: 13px;
+	padding-bottom: 13px;
+	-webkit-transition: all 200ms linear;
+	transition: all 200ms linear; 
+}
 /* #Hero flip slider
 ================================================== */
 

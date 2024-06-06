@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<div class="section ">
+<div class="section mb-5">
     <div class="section ">
         <div class="container">
             <div class="row mt-5">
@@ -152,20 +152,20 @@
                     @if ($homestay->status == "true")
                         <!-- Button trigger modal --> 
                         <div class="col-12 pt-4">
-                            <a type="button" class=" booking-button" style="background-color: red;" data-toggle="modal" data-target="#exampleModalCenter{{ $homestay->id }}">
+                            <a type="button" class="delete-button" style="background-color: red;" data-toggle="modal" data-target="#exampleModalCenter{{ $homestay->id }}">
                                 Hapus Homestay
                             </a>
                         </div>
                     @else 
                         <div class="col-12 pt-4">
-                            <span class="cursor-not-allowed text-center">Data Sudah Terhapus</span> 
+                            <span class="text-center edit-button" style="background-color: rgb(82, 70, 238);">Data Sudah Terhapus</span> 
                         </div>
-                    @endif
-                    {{-- <div class="col-12 pt-4"> 
-                        <a class="booking-button" style="background-color: red;" data-toggle="modal" data-target="#exampleModalCenter">
-                            Hapus Homestay
-                        </a>
-                    </div>  --}}
+                    @endif 
+
+                    <div class="col-12 pt-3">
+                        <a type="button" href="{{ route('edit.homestay', $homestay->id) }}" class="edit-button" >Edit Homestay</a>
+                    </div>
+                    
 
                     <!-- Modal -->
                     <form action="{{ route('updateAvailable', $homestay->id) }}" method="POST">
@@ -183,7 +183,7 @@
                                     <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                                     </svg>
-                                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah Anda yakin ingin mengkonfirmasi Kontrak ini?</h3>
+                                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah Anda yakin ingin Menghapus Data ini?</h3>
                                     <button type="submit" class="mr-3 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Konfirmasi</button>
                                     <button type="button" class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400" data-dismiss="modal">Batal</button>
                                 </div> 
