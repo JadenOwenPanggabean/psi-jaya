@@ -19,6 +19,16 @@
 
 <div class="section padding-top-bottom over-hide background-grey">
     <div class="container">
+        @php
+            function limitWords($text, $wordLimit) {
+                $words = explode(' ', $text);
+                if (count($words) > $wordLimit) {
+                    $words = array_slice($words, 0, $wordLimit);
+                    return implode(' ', $words) . '...';
+                }
+                return $text;
+            }
+        @endphp
         <div class="row justify-content-center"> 
             @foreach ($homestay as $item)
                 @if ($item->status === 'true')
@@ -29,11 +39,11 @@
                                 <img src="{{'/storage/'. $item->images[0]->image_location ?? 'https://via.placeholder.com/150?text=Tidak+ada+gambar'}}"
                                     alt="" style="aspect-ratio: 3 / 2; object-fit: cover;">
                                 <div class="room-box-in">
-                                    <h5 class=""><a href="/homestay/{{$item->slug}}">{{$item->name}}</a></h5>
-                                    <p class="mt-3">
-                                        {{$item->description}}
-                                    </p>
-                                    <a class="mt-1 btn btn-primary" href="/homestay/{{$item->slug}}">Pesan</a>
+                                    <h5 class=""><a href="/fasilitas/{{$item->slug}}">{{$item->name}}</a></h5>
+                                    <p class="mt-3"> 
+                                        {{ limitWords($item->description, 35) }}
+                                    </p> 
+                                    <a class="btn btn-primary mt-3" href="/fasilitas/{{$item->slug}}">Lihat Detail</a> 
                                     <div class="room-icons mt-4 pt-4">
                                     </div>
                                 </div>
@@ -47,11 +57,11 @@
                                 <img src="{{'/storage/'. $item->images[0]->image_location ?? 'https://via.placeholder.com/150?text=Tidak+ada+gambar'}}"
                                     alt="" style="aspect-ratio: 3 / 2; object-fit: cover;">
                                 <div class="room-box-in">
-                                    <h5 class=""><a href="/homestay/{{$item->slug}}">{{$item->name}}</a></h5>
+                                    <h5 class=""><a href="/fasilitas/{{$item->slug}}">{{$item->name}}</a></h5>
                                     <p class="mt-3">
-                                        {{$item->description}}
+                                        {{ limitWords($item->description, 35) }} 
                                     </p>
-                                    <a class="mt-1 btn btn-primary" href="/homestay/{{$item->slug}}">Pesan</a>
+                                    <a class="btn btn-primary mt-3" href="/fasilitas/{{$item->slug}}">Lihat Detail</a> 
                                     <div class="room-icons mt-4 pt-4">
                                     </div>
                                 </div>
@@ -65,11 +75,11 @@
                                 <img src="{{'/storage/'. $item->images[0]->image_location ?? 'https://via.placeholder.com/750?text=Tidak+ada+gambar'}}"
                                     alt="" style="aspect-ratio: 3 / 2; object-fit: cover;">
                                 <div class="room-box-in">
-                                    <h5 class=""><a href="/homestay/{{$item->slug}}">{{$item->name}}</a></h5>
-                                    <p class="mt-3">
-                                        {{$item->description}}
+                                    <h5 class=""><a href="/fasilitas/{{$item->slug}}">{{$item->name}}</a></h5>
+                                    <p id="description" class="mt-3">
+                                        {{ limitWords($item->description, 45) }}
                                     </p>
-                                    <a class="mt-1 btn btn-primary" href="/homestay/{{$item->slug}}">Pesan</a>
+                                    <a class="btn btn-primary mt-3" href="/fasilitas/{{$item->slug}}">Lihat Detail</a> 
                                     <div class="room-icons mt-4 pt-4">
                                     </div>
                                 </div>
@@ -79,7 +89,7 @@
                 @endif 
             @endforeach
         </div>
-    </div>  
+    </div>   
 </div>
 
 @endsection

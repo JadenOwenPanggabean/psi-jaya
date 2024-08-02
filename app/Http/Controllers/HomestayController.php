@@ -17,12 +17,12 @@ class HomestayController extends Controller
         $homestay = Homestays::where('slug', $title_slug)->firstOrFail();
         $homestay_images = HomestaysImage::where('homestays_id', $homestay->id)->get();
         $user_no_hp = $homestay->user->no_hp;
-        return view('homestay', compact('homestay', 'homestay_images', 'user_no_hp'));
+        return view('fasilitas', compact('homestay', 'homestay_images', 'user_no_hp'));
     }
 
     public function create()
     {
-        return view('createhomestay');
+        return view('createfasilitas');
     }
 
     public function store(Request $request)
@@ -72,13 +72,13 @@ class HomestayController extends Controller
             }
         }
 
-        return redirect()->route('homestay', $slug)->with('success', 'Data Atribut Berhasil Ditambahkan.');;
+        return redirect()->route('fasilitas', $slug)->with('success', 'Data Atribut Berhasil Ditambahkan.');;
     }
 
     public function edit($id)
     {
         $homestay = Homestays::findOrFail($id);
-        return view('edithomestay', compact('homestay'));
+        return view('editfasilitas', compact('homestay'));
     }
 
     public function update(Request $request, string $id)
@@ -101,7 +101,7 @@ class HomestayController extends Controller
     $homestay = Homestays::findOrFail($id);
     $homestay->update($validatedData);
 
-    return redirect()->route('homestay', $homestay->slug)->with('success', 'Data Atribut Berhasil Ditambahkan.');
+    return redirect()->route('fasilitas', $homestay->slug)->with('success', 'Data Atribut Berhasil Ditambahkan.');
 }
 
 
@@ -121,7 +121,7 @@ class HomestayController extends Controller
             $homestay->available = 'true';
         }
         $homestay->save();
-        return redirect()->route('homestay', $homestay->slug);
+        return redirect()->route('fasilitas', $homestay->slug);
     }
 
     public function addorder(Request $request, $slug)
@@ -156,9 +156,8 @@ class HomestayController extends Controller
         $statuspesan->status = 'false';
         $statuspesan->save();
 
-        return redirect()->route('home')->with('success', 'Data Atribut Berhasil Dihapus.');
+        return redirect()->back()->with('success', 'Data Atribut Berhasil Dihapus.');
     } 
-
     
     public function DataHapus()
     {
@@ -166,7 +165,7 @@ class HomestayController extends Controller
     ->orderBy('created_at', 'desc')
     ->paginate(5);  
         
-        return view('historyhomestay', compact('datahapus'));
+        return view('historyfasilitas', compact('datahapus'));
     }
 
     public function repairAvailable(Request $request, $id)

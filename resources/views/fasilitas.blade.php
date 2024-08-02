@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<div class="section mb-5">
+<div class="section mb-5 m-3 mr-3">
     <div class="section ">
         <div class="container">
             <div class="row mt-5">
@@ -47,38 +47,39 @@
                         </div>
                     </div>
                     <div class="section pt-5">
-                        <h5>discription</h5>
-                        <p class="mt-3"></p>
+                        <h4>Description</h4>
+                        <p class="mt-3">{{$homestay->description}}</p>
                     </div>
-                    {{$homestay->description}}
+                    {{-- {{$homestay->description}} --}}
                     <div class="section pt-4">
                         <div class="row">
                             <div class="col-12">
-                                <h5 class="mb-3">Overview</h5>
+                                <h4 class="mb-3">Overview</h4>
                             </div>
                             <div class="col-lg-6">
-                                <p><strong class="color-black">Room size: </strong>{{$homestay->room_size}}</p>
-                                <p><strong class="color-black">Occupancy: </strong>{{$homestay->occupancy}}</p>
-                                <p><strong class="color-black">View: </strong>{{$homestay->view}}</p>
-                                <p><strong class="color-black">Smoking: </strong>{{$homestay->smoking}}</p>
+                                <p><strong class="color-black"> <i>Room size</i> : </strong>{{$homestay->room_size}}</p>
+                                <p><strong class="color-black"> <i>Occupancy:</i> </strong>{{$homestay->occupancy}}</p>
+                                <p><strong class="color-black"> <i>View:</i> </strong>{{$homestay->view}}</p>
+                                <p><strong class="color-black"> <i>Smoking:</i> </strong>{{$homestay->smoking}}</p>
                             </div>
                             <div class="col-lg-6">
-                                <p><strong class="color-black">Bed size: </strong>{{$homestay->bed_size}}</p>
-                                <p><strong class="color-black">Location: </strong>{{$homestay->location}}</p>
-                                <p><strong class="color-black">Room service: </strong>{{$homestay->room_service}}
-                                </p>
-                                <p><strong class="color-black">Swimming pool: </strong>{{$homestay->swimming_pool}}
-                                </p>
+                                <p><strong class="color-black"> <i>Smoking:</i> </strong>{{$homestay->bed_size}}</p>
+                                <p><strong class="color-black"> <i>Location:</i> </strong>{{$homestay->location}}</p>
+                                <p><strong class="color-black"> <i>Room service:</i> </strong>{{$homestay->room_service}}</p>
+                                <p><strong class="color-black"> <i>Swimming pool</i> : </strong>{{$homestay->swimming_pool}} </p>
                             </div>
                         </div>
                     </div>
                     <div class="section pt-4">
                         <h5>Features</h5>
                         <p class="mt-3">
-                            {{$homestay->features}}</p>
+                            {{$homestay->features}}</p> 
                     </div>
                 </div>
-                <div class="col-lg-4 order-first order-lg-last">
+                 <!--Pesan Fasilitas-->
+                 @if (Auth::check())
+                 @if (Auth::user()->role == 'user') 
+                 <div class="col-lg-4 order-first order-lg-last">
                     @if ($homestay->available === 'true')
                     <form method="post" action="/addorder/{{$homestay->slug}}" class="section background-dark p-4">
                         @csrf
@@ -140,58 +141,32 @@
                         <p class="mb-0" style="color: #000;"><b>Hubungi nomor di bawah ini untuk memesan:</b></p>
                         <h4>+{{$user_no_hp}}</h4>
                     </div>
+                    <!--Button Booking-->
                     <div class="col-12 pt-4">
                         <a class="booking-button"
                             href="{{$homestay->user_id == Auth::id() ? route('available.homestay', $homestay->id) : 'javascript:void(0)'}}"
                             style="{{$homestay->available === 'true' ? 'background-color: #6dc234 !important' : 'background-color: red !important'}}; {{$homestay->user_id == Auth::id() ? '' : 'pointer-events: none'}}">
                             {{$homestay->available === 'true' ? 'Tersedia' : 'Tidak Tersedia'}}
                         </a>
-                    </div>
+                    </div> 
+                </div>
+                 @endif
+                 @endif
+                <div class="col-lg-4">
+                    <!--Edit Fasilitas-->
                     @if (Auth()->check())
-                    @if ($homestay->user_id == Auth::id() || Auth::user()->role == 'admin')
-                    @if ($homestay->status == "true")
-                        <!-- Button trigger modal --> 
+                        @if ($homestay->user_id == Auth::id())
+                        <!-- Button modal hapus--> 
                         <div class="col-12 pt-4">
                             <a type="button" class="delete-button" style="background-color: red;" data-toggle="modal" data-target="#exampleModalCenter{{ $homestay->id }}">
-                                Hapus Homestay
+                                Hapus Fasilitas
                             </a>
                         </div>
-                    @else 
-                        <div class="col-12 pt-4">
-                            <span class="text-center edit-button" style="background-color: rgb(82, 70, 238);">Data Sudah Terhapus</span> 
+                        <!-- Button modal edit--> 
+                        <div class="col-12 pt-3">
+                            <a type="button" href="{{ route('edit.fasilitas', $homestay->id) }}" class="edit-button" >Edit Fasilitas</a>
                         </div>
-                    @endif 
-
-                    <div class="col-12 pt-3">
-                        <a type="button" href="{{ route('edit.homestay', $homestay->id) }}" class="edit-button" >Edit Homestay</a>
-                    </div>
-                    
-
-                    <!-- Modal -->
-                    <form action="{{ route('updateAvailable', $homestay->id) }}" method="POST">
-                        @csrf
-                        @method('PUT')
-                        <div class="modal fade" id="exampleModalCenter{{ $homestay->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content text-center">
-                                <div class="modal-header"> 
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                    <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-                                    </svg>
-                                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah Anda yakin ingin Menghapus Data ini?</h3>
-                                    <button type="submit" class="mr-3 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Konfirmasi</button>
-                                    <button type="button" class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400" data-dismiss="modal">Batal</button>
-                                </div> 
-                            </div>
-                            </div>
-                        </div>
-                    </form>
-                    @endif
+                        @endif
                     @endif
                 </div>
             </div>

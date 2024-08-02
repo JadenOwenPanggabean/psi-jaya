@@ -19,7 +19,7 @@
 
 <div class="section padding-top z-bigger">
     <div class="container">
-        <form method="post" action="{{ route('store.news') }}" enctype="multipart/form-data"
+        <form id="description-form" method="post" action="{{ route('store.news') }}" enctype="multipart/form-data"
             class="row justify-content-center padding-bottom-smaller">
             @csrf
             <div class="col-md-8">
@@ -41,12 +41,13 @@
             <!-- Deskripsi -->
             <div class="col-md-8 mt-5 ajax-form">
                 <p class="name-input">Deskripsi:</p>
-                <textarea name="description" autocomplete="off" required>{{ old('description') }}</textarea>
+                <textarea name="description" id="description" autocomplete="off" required></textarea>
+                <p id="error-message" class="text-danger"></p>
                 @error('description')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="section clearfix mt-5"></div>
+            <div class="section clearfix mt-5"></div> 
 
             <!-- Gambar -->
             <div class="col-md-4 mt-5 mt-md-0 ajax-form">
@@ -64,4 +65,28 @@
         </form>
     </div>
 </div>
+<script>
+    document.getElementById('description-form').addEventListener('submit', function(event) {
+        const textarea = document.getElementById('description');
+        const words = textarea.value.split(/\s+/);
+        const errorMessage = document.getElementById('error-message');
+        
+        let hasError = false;
+        for (let word of words) {
+            if (word.length > 15) {
+                hasError = true;
+                break;
+            }
+        }
+
+        if (hasError) {
+            errorMessage.textContent = 'Kata tidak boleh lebih dari 15 huruf.';
+            event.preventDefault(); // Prevent the form from submitting
+        } else {
+            errorMessage.textContent = '';
+        }
+    });
+</script>
+
+
 @endsection

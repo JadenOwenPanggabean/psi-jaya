@@ -19,13 +19,12 @@
 
 <div class="section padding-top ">
     <div class="container">
-        <form action="{{ route('update.homestay', $homestay->id) }}" method="POST" enctype="multipart/form-data"
-            class="row justify-content-center padding-bottom-smaller">
+        <form id="description-form" action="{{ route('update.fasilitas', $homestay->id) }}" method="POST" enctype="multipart/form-data" class="row justify-content-center padding-bottom-smaller">
             @csrf
             @method('PUT')
             <div class="col-md-8">
                 <div class="subtitle with-line text-center mb-4">Owner</div>
-                <h3 class="text-center padding-bottom-small">Daftarkan Homestay</h3>
+                <h3 class="text-center padding-bottom-small">Daftarkan Fasilitas</h3>
             </div>
             <div class="section clearfix"></div>
 
@@ -39,10 +38,37 @@
             </div>
             <div class="section clearfix"></div>
 
-            <!-- Deskripsi -->
+            <!-- Deskripsi --> 
             <div class="col-md-8 mt-5 ajax-form">
                 <p class="name-input">Deskripsi:</p>
-                <textarea name="description" autocomplete="off" required>{{ old('description', $homestay->description ) }}</textarea>
+                <textarea name="description" id="description" autocomplete="off" required>{{ old('description', $homestay->description ) }}</textarea>
+                <p id="error-message" class="text-danger"></p>
+                @error('description')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror 
+
+                <script>
+                    document.getElementById('description').addEventListener('input', function() {
+                        const textarea = this;
+                        const words = textarea.value.split(/\s+/);
+                        const errorMessage = document.getElementById('error-message');
+                        
+                        let hasError = false;
+                        for (let word of words) {
+                            if (word.length > 15) {
+                                hasError = true;
+                                break;
+                            }
+                        }
+
+                        if (hasError) {
+                            errorMessage.textContent = 'No word should exceed 15 characters.';
+                        } else {
+                            errorMessage.textContent = '';
+                        }
+                    });
+                </script>
+                {{-- <textarea name="description" autocomplete="off" required>{{ old('description') }}</textarea> --}}
                 @error('description')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -288,7 +314,7 @@
             <div class="section clearfix"></div>
             <div class="col-md-8 mt-3 ajax-form text-center">
                 <a class="booking-button btn btn-primary"  data-toggle="modal" data-target="#exampleModalCenter">
-                    Tambah Homestay
+                    Tambah Fasilitas
                 </a>
             </div>
 

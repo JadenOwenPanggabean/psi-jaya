@@ -19,12 +19,12 @@
 
 <div class="section padding-top ">
     <div class="container">
-        <form method="post" action="{{ route('store.homestay') }}" enctype="multipart/form-data"
+        <form method="post" action="{{ route('store.fasilitas') }}" enctype="multipart/form-data"
             class="row justify-content-center padding-bottom-smaller">
             @csrf
             <div class="col-md-8">
                 <div class="subtitle with-line text-center mb-4">Owner</div>
-                <h3 class="text-center padding-bottom-small">Daftarkan Homestay</h3>
+                <h3 class="text-center padding-bottom-small">Daftarkan Fasilitas</h3>
             </div>
             <div class="section clearfix"></div>
 
@@ -37,15 +37,42 @@
                 @enderror
             </div>
             <div class="section clearfix"></div>
-
-            <!-- Deskripsi -->
-            <div class="col-md-8 mt-5 ajax-form">
+<div class="col-md-8 mt-5 ajax-form">
                 <p class="name-input">Deskripsi:</p>
-                <textarea name="description" autocomplete="off" required>{{ old('description') }}</textarea>
+                <textarea name="description" id="description" autocomplete="off" required>{{ old('description') }}</textarea>
+                <p id="error-message" class="text-danger"></p>
+                @error('description')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror 
+
+                <script>
+                    document.getElementById('description').addEventListener('input', function() {
+                        const textarea = this;
+                        const words = textarea.value.split(/\s+/);
+                        const errorMessage = document.getElementById('error-message');
+                        
+                        let hasError = false;
+                        for (let word of words) {
+                            if (word.length > 15) {
+                                hasError = true;
+                                break;
+                            }
+                        }
+
+                        if (hasError) {
+                            errorMessage.textContent = 'No word should exceed 15 characters.';
+                        } else {
+                            errorMessage.textContent = '';
+                        }
+                    });
+                </script>
+                {{-- <textarea name="description" autocomplete="off" required>{{ old('description') }}</textarea> --}}
                 @error('description')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
+            <!-- Deskripsi --> 
+            
             <div class="section clearfix mt-5"></div>
 
             <!-- Fitur -->
@@ -68,9 +95,9 @@
             </div>
             <div class="section clearfix mt-5"></div>
 
-            <!-- Jumlah Hunian -->
+            <!-- Kapasitas -->
             <div class="col-md-4 mt-5 mt-md-0 ajax-form">
-                <p class="name-input">Jumlah Hunian:</p>
+                <p class="name-input">Kapasitas:</p>
                 <select id="occupancy" name="occupancy" class="mt-3"> 
                     <option value="Up to 3 Adults">Up to 3 Adults</option>
                     <option value="Up to 5 Adults">Up to 5 Adults</option>
@@ -151,7 +178,7 @@
                 <div class="row mt-3">
                     <div class="col-md-6">
                         <div class="form-check">
-                            <input class="" type="radio" name="roomservice" id="roomservice" value="yes" checked>
+                            <input class="" type="radio" name="roomservice" id="roomservice" value="Yes" checked>
                             <label class="form-check-label" for="roomservice">
                               Yes
                             </label>
@@ -223,7 +250,7 @@
             <div class="section clearfix"></div>
             <div class="col-md-8 mt-3 ajax-form text-center">
                 <a class="booking-button btn btn-primary"  data-toggle="modal" data-target="#exampleModalCenter">
-                    Tambah Homestay
+                    Tambah Fasilitas
                 </a>
             </div>
 

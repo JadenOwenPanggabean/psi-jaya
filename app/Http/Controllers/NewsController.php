@@ -48,7 +48,12 @@ class NewsController extends Controller
     public function delete($id)
     {
         $news = News::find($id);
-        $news->delete();
-        return redirect()->route('news')->with('warning', 'Data Atribut Berhasil Dihapus.');;
+        if ($news) {
+            $news->delete();
+            return redirect()->route('news')->with('warning', 'Data Atribut Berhasil Dihapus.');
+        }
+        return redirect()->route('news')->with('error', 'Data tidak ditemukan.');
     }
+
+
 }
