@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 parallax-fade-top">
-                    <div class="hero-text">Data Homestay Delete</div>
+                    <div class="hero-text">Data Fasilitas Delete</div>
                 </div>
             </div>
         </div>
@@ -23,8 +23,8 @@
             <thead>
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nama Homestay</th>
-                <th scope="col">Deskripsi Homestay</th> 
+                <th scope="col">Nama Fasilitas</th>
+                <th scope="col">Deskripsi Fasilitas</th> 
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
                 </tr>
@@ -66,7 +66,7 @@
                                 <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                                 </svg>
-                                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah Anda yakin ingin mengkonfirmasi Homestay ini?</h3>
+                                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Apakah Anda yakin ingin mengkonfirmasi Fasilitas ini?</h3>
                                 <button type="submit" class="mr-3 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Konfirmasi</button>
                                 <button type="button" class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400" data-dismiss="modal">Batal</button>
                             </div> 

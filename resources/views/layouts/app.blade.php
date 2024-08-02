@@ -96,12 +96,12 @@
                     <div class="col-6 px-0 px-md-3 py-3 text-right">
                         @if (Auth()->check())
                         @if (Auth()->user()->role == 'owner' && Auth()->user()->verified == 'true')
-                        <a href="{{ route('create.homestay') }}" class="social-top">Create Homestay</a>
+                        <a href="{{ route('create.fasilitas') }}" class="social-top">Create Fasilitas</a>
                         <a href="{{ route('pay') }}" class="social-top">History Pemesanan</a>
                         @endif
                         @if (Auth()->user()->role == 'admin')
                         <a href="{{ route('verify.owner') }}" class="social-top">Verify Owner</a>
-                        <a href="{{ route('DataHapus') }}" class="social-top">Data Homestay</a>
+                        <a href="{{ route('DataHapus') }}" class="social-top">Data Fasilitas</a>
                         <a href="{{ route('create.news') }}" class="social-top">Create News</a>
                         @endif
                         <a href="{{ route('logout') }}"
